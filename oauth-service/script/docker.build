@@ -1,0 +1,2 @@
+docker build -t gitlab.fuhu.com:4567/server/moai-tahai:oauth-service .
+docker image prune

@@ -1,0 +1,12 @@
+port=18081
+if [[ -n "$1" ]]; then
+    port=$1
+fi
+
+docker run -it -d -p $port:8081 \
+-v /var/log/oauth-service/:/var/log/oauth-service/ \
+--link eureka-service:eureka-service \
+--link redis-service:redis-service
+--name oauth-service \
+--restart unless-stopped \
+gitlab.fuhu.com:4567/server/moai-tahai:oauth-service
